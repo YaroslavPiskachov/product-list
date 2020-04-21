@@ -1,0 +1,14 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="card-header">
+      <h4>{{product.title}}
+        <a routerLink="/payment/{{product.id}}" class="btn btn-primary float-right">
+          {{product.price}}$ - Buy
+        </a>
+      </h4>
+    </div>
+    <div class="card-body">
+      <pre class="card-text">{{product.description}}.</pre>
+    </div>
+  </div>
+</div>
