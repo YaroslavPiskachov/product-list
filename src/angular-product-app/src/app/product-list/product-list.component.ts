@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from "../models/product";
 import {ProductService} from "../services/product-service.service";
 
@@ -11,12 +11,29 @@ export class ProductListComponent implements OnInit {
 
   products: Product[];
 
-  constructor(private productService: ProductService) { }
+  readonly itemsPerPage;
+  p: number;
+  total: number;
+
+  constructor(private productService: ProductService) {
+    this.itemsPerPage = 5;
+    this.p = 1;
+    this.getProducts(0);
+  }
 
   ngOnInit(): void {
-    this.productService.findAll().subscribe(data => {
-      this.products = data;
-    })
+  }
+
+  pageChanged(event) {
+    this.p = event;
+    this.getProducts(this.p);
+  }
+
+  getProducts(pageNumber) {
+    this.productService.findAll(pageNumber - 1, this.itemsPerPage).subscribe(data => {
+      this.products = data["content"];
+      this.total = data["totalElements"];
+    });
   }
 
 }

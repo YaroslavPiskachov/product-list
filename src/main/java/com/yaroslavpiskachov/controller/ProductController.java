@@ -4,9 +4,9 @@ import com.yaroslavpiskachov.exception.ProductNotFoundException;
 import com.yaroslavpiskachov.model.PaymentCard;
 import com.yaroslavpiskachov.model.Product;
 import com.yaroslavpiskachov.service.ProductService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class ProductController {
@@ -18,8 +18,8 @@ public class ProductController {
     }
 
     @GetMapping("/product")
-    public List<Product> findAllProducts() {
-        return productService.findAll();
+    public Page<Product> findAllProducts(Pageable page) {
+        return productService.findAll(page);
     }
 
     @PostMapping("/product/buy/{id}")

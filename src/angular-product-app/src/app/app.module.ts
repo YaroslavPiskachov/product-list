@@ -8,6 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ProductComponent} from './product/product.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ProductPaymentFormModule} from "./product-payment-form/product-payment-form.module";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {ProductPaymentFormModule} from "./product-payment-form/product-payment-f
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ProductPaymentFormModule
+    ProductPaymentFormModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

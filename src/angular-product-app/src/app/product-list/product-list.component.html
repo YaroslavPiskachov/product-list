@@ -1,5 +1,7 @@
 <div class="card-desk">
-  <div *ngFor="let product of products">
+  <div *ngFor="let product of products |
+  paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: total }">
     <app-product [product]="product"></app-product>
   </div>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 </div>

@@ -4,9 +4,9 @@ import com.yaroslavpiskachov.exception.ProductNotFoundException;
 import com.yaroslavpiskachov.model.Product;
 import com.yaroslavpiskachov.repository.ProductRepository;
 import com.yaroslavpiskachov.service.ProductService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -18,8 +18,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findAll() {
-        return productRepository.findAll();
+    public Page<Product> findAll(Pageable page) {
+        return productRepository.findAll(page);
     }
 
     @Override
