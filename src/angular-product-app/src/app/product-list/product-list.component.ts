@@ -29,8 +29,8 @@ export class ProductListComponent implements OnInit {
     this.getProducts(this.p);
   }
 
-  getProducts(pageNumber) {
-    this.productService.findAll(pageNumber - 1, this.itemsPerPage).subscribe(data => {
+  async getProducts(pageNumber) {
+    this.productService.findByPage(pageNumber - 1, this.itemsPerPage).subscribe(data => {
       this.products = data["content"];
       this.total = data["totalElements"];
     });

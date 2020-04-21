@@ -16,7 +16,7 @@ export class ProductService {
     this.productUrl = environment.apiBaseUrl + '/product';
   }
 
-  public findAll(pageNumber, itemsPerPage): Observable<Product[]> {
+  public findByPage(pageNumber, itemsPerPage): Observable<Product[]> {
     let params = new HttpParams();
     params = params.append('page', pageNumber);
     params = params.append('size', itemsPerPage);
